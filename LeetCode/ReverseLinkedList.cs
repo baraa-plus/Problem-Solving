@@ -10,6 +10,7 @@
  * }
  */
 
+// Method - 1:
 public class Solution
 {
     public ListNode ReverseList(ListNode head)
@@ -23,5 +24,22 @@ public class Solution
             curr = next;
         }
         return prev;
+    }
+}
+
+// Method - 2 (Recursive):
+public class Solution
+{
+    public ListNode ReverseList(ListNode head, ListNode previos = null)
+    {
+        if (head == null)
+        {
+            return previos;
+        }
+        ListNode prev = previos, curr = head, nxt = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nxt;
+        return ReverseList(curr, prev);
     }
 }
