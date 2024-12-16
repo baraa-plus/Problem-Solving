@@ -36,10 +36,10 @@ public class Solution
         {
             return previos;
         }
-        ListNode prev = previos, curr = head, nxt = curr.next;
-        curr.next = prev;
-        prev = curr;
-        curr = nxt;
-        return ReverseList(curr, prev);
+        ListNode nxt = head.next;
+        head.next = previos;
+        previos = head;
+        head = nxt;
+        return ReverseList(head, previos);
     }
 }
